@@ -19,10 +19,36 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
+// Console.Write("Please, enter your numbers with space between: ");
+// int[] numbers = Numbers(Console.ReadLine()!);
+// int num1 = numbers[0];
+// int num2 = numbers[1];
+// int[] Numbers(string userInput)
+// {
+//     string[] line = userInput.Split(" ");
+//     int[] nums = new int[line.Length];
+//     for (int i = 0; i < nums.Length; i++) nums[i] = int.Parse(line[i]);
+//     return nums;
+// }
+
+
+// int SumRec(int n, int m)
+// {
+    
+//     if (n > m) return 0;
+//     else return m +  SumRec(n, m - 1);
+
+// }
+// Console.WriteLine($"Summary of natural numbers {num1} and {num2} equals {SumRec(num1, num2)}");
+
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+
 Console.Write("Please, enter your numbers with space between: ");
 int[] numbers = Numbers(Console.ReadLine()!);
-int num1 = numbers[0];
-int num2 = numbers[1];
+int m = numbers[0];
+int n = numbers[1];
 int[] Numbers(string userInput)
 {
     string[] line = userInput.Split(" ");
@@ -32,16 +58,16 @@ int[] Numbers(string userInput)
 }
 
 
-int SumRec(int n, int m)
+int AkkermanMethod(int m, int n)
 {
-    
-    if (n > m) return 0;
-    else return m +  SumRec(n, m - 1);
+
+    if (m == 0)
+        return n + 1;
+    else if (m > 0 && n == 0)
+        return AkkermanMethod(m - 1, 1);
+    else if (m > 0 && n > 0)
+        return AkkermanMethod(m - 1, AkkermanMethod(m, n - 1));
+    return AkkermanMethod(m, n);
 
 }
-Console.WriteLine($"Summary of natural numbers {num1} and {num2} equals {SumRec(num1, num2)}");
-
-// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
-// m = 2, n = 3 -> A(m,n) = 9
-// m = 3, n = 2 -> A(m,n) = 29
-
+Console.WriteLine($"{AkkermanMethod(m,n)}");
