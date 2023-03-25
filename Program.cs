@@ -45,29 +45,29 @@
 // m = 2, n = 3 -> A(m,n) = 9
 // m = 3, n = 2 -> A(m,n) = 29
 
-Console.Write("Please, enter your numbers with space between: ");
-int[] numbers = Numbers(Console.ReadLine()!);
-int m = numbers[0];
-int n = numbers[1];
-int[] Numbers(string userInput)
-{
-    string[] line = userInput.Split(" ");
-    int[] nums = new int[line.Length];
-    for (int i = 0; i < nums.Length; i++) nums[i] = int.Parse(line[i]);
-    return nums;
-}
+// Console.Write("Please, enter your numbers with space between: ");
+// int[] numbers = Numbers(Console.ReadLine()!);
+// int m = numbers[0];
+// int n = numbers[1];
+// int[] Numbers(string userInput)
+// {
+//     string[] line = userInput.Split(" ");
+//     int[] nums = new int[line.Length];
+//     for (int i = 0; i < nums.Length; i++) nums[i] = int.Parse(line[i]);
+//     return nums;
+// }
 
 
-int AkkermanMethod(int m, int n)
-{
+// int AkkermanMethod(int m, int n)
+// {
 
-    if (m == 0)
-        return n + 1;
-    else if (m > 0 && n == 0)
-        return AkkermanMethod(m - 1, 1);
-    else if (m > 0 && n > 0)
-        return AkkermanMethod(m - 1, AkkermanMethod(m, n - 1));
-    return AkkermanMethod(m, n);
+//     if (m == 0)
+//         return n + 1;
+//     else if (m > 0 && n == 0)
+//         return AkkermanMethod(m - 1, 1);
+//     else if (m > 0 && n > 0)
+//         return AkkermanMethod(m - 1, AkkermanMethod(m, n - 1));
+//     return AkkermanMethod(m, n);
 
-}
-Console.WriteLine($"{AkkermanMethod(m,n)}");
+// }
+// Console.WriteLine($"{AkkermanMethod(m,n)}");
